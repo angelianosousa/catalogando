@@ -1,0 +1,32 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render 'shared/flash_messages' %>
+
+<% content_for :title, "Entities" %>
+
+<nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+    <%= link_to 'Entidades', admin_entities_path, class: 'navbar-brand', style: 'font-size: 30px;' %>
+
+    <%= link_to "Nova entidade", new_admin_entity_path, class: 'btn btn-primary' %>
+  </div>
+</nav>
+
+<div id="entities">
+  <table class="table table-striped table-responsive">
+    <thead class='table-dark'>
+      <tr>
+        <th>Nome Empresa</th>
+        <th>Status</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @entities.each do |entity| %>
+        <%= render entity %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+

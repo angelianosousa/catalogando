@@ -1,0 +1,7 @@
+<tr id="<%= dom_id entity %>">
+  <td><%= entity.name %></td>
+  <td><%= status_badge(entity) %></td>
+  <td>
+    <%= render 'actions', entity: entity %>
+  </td>
+</tr>

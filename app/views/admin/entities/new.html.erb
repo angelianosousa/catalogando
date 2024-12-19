@@ -1,0 +1,9 @@
+<% content_for :title, "Nova Entidade" %>
+
+<nav class="navbar bg-body-tertiary">
+  <h2>Nova Entidade</h2>
+
+  <%= link_to "Voltar", admin_entities_path, class: 'btn btn-secondary' %>
+</nav>
+
+<%= render "form", entity: @entity %>

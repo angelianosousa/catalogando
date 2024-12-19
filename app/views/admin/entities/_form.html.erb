@@ -1,0 +1,17 @@
+<%= form_with(model: [:admin, entity],) do |form| %>
+  <div class='card'>
+    <div class='card-body'>
+      <%= render 'shared/errors_messages', resource: entity %>
+
+      <div class='form-group'>
+        <%= form.label :name, clas: 'form-label' %>
+        <%= form.text_field :name, class: 'form-control mt-3 mb-3' %>
+      </div>
+
+      <div>
+        <%= form.submit 'Salvar', class: 'btn btn-primary' %>
+      </div>
+    </div>
+    
+  </div>
+<% end %>
