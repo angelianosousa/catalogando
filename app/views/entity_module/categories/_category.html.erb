@@ -1,0 +1,7 @@
+<tr id="<%= dom_id category %>">
+  <td><%= category.name %></td>
+  <td><%= status_badge(category) %></td>
+  <td>
+    <%= render 'actions', category: category %>
+  </td>
+</tr>

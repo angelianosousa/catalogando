@@ -1,0 +1,34 @@
+<% content_for :title, "Catalogando | Produtos" %>
+
+<nav class="navbar bg-body-tertiary">
+  <%= content_for :page_header do %>
+    <div class="container-fluid d-flex justify-content-between">
+      <h1>
+        <%= fa_icon "list" %>
+        <%= link_to 'Produtos', products_path, class: 'navbar-brand text-dark' %>
+      </h1>
+
+      <%= link_to_new_resource("Novo produto", new_product_path) %>
+    </div>
+  <% end %>
+</nav>
+
+<div id="products">
+  <table class="table table-striped">
+    <thead class='table-dark'>
+      <tr>
+        <th>Nome</th>
+        <th>Preço</th>
+        <th>Disconto</th>
+        <th>Preço final</th>
+        <th>Visível</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @products.each do |product| %>
+        <%= render product %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

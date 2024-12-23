@@ -18,9 +18,11 @@
   </head>
 
   <body>
-    <%= render 'shared/navbar' %>
+    <%= render 'shared/navbar_admin' %>
     
     <div class="m-5">
+      <%= render 'shared/flash_messages' %>
+
       <%= yield %>
     </div>
   </body>

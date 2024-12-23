@@ -1,0 +1,17 @@
+<%= form_with(model: category) do |form| %>
+  <div class='card'>
+    <div class='card-body'>
+      <%= render 'shared/errors_messages', resource: category %>
+
+      <div class='form-group'>
+        <%= form.label :name, clas: 'form-label' %>
+        <%= form.text_field :name, class: 'form-control mt-3 mb-3', autofocus: true %>
+      </div>
+
+      <div>
+        <%= form.submit 'Salvar', class: 'btn btn-primary' %>
+      </div>
+    </div>
+    
+  </div>
+<% end %>

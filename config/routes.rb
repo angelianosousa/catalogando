@@ -11,9 +11,15 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  
-  namespace 'admin' do
+
+  namespace "admin" do
     resources :entities
   end
 
+  scope module: "entity_module" do
+    # resources :catalogs, only: :index
+    resources :categories
+    resources :products
+    resources :dashboard, only: :index
+  end
 end
