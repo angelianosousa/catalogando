@@ -5,17 +5,17 @@
     <div class="container-fluid d-flex justify-content-between">
       <h1>
         <%= fa_icon "list" %>
-        <%= link_to 'Categorias', categories_path, class: 'navbar-brand text-dark' %>
+        <%= link_to 'Categorias', entity_categories_path, class: 'navbar-brand text-dark' %>
       </h1>
 
-      <%= link_to_new_resource("Nova categoria", new_category_path) %>
+      <%= link_to_new_resource("Nova categoria", new_entity_category_path) %>
     </div>
   <% end %>
 </nav>
 
 <div id="categories">
-  <table class="table table-sm table-striped">
-    <thead class='table-dark'>
+  <table class="table table-head-bg-black table-striped">
+    <thead>
       <tr>
         <th>Nome</th>
         <th>Status</th>

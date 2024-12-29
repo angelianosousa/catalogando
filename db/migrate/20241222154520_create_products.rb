@@ -4,7 +4,7 @@ class CreateProducts < ActiveRecord::Migration[7.2]
       t.string :name
       t.monetize :price, default: 1
       t.decimal :discount, default: 0
-      t.boolean :visible, default: false
+      t.boolean :visible, default: true
       t.references :entity, null: false, foreign_key: true
 
       t.timestamps

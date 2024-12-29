@@ -12,14 +12,31 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  namespace "admin" do
-    resources :entities
+  # ============================ AUTHENTICATION =========================== #
+
+  devise_for :admin_entities
+
+  # ============================ AUTHENTICATION =========================== #
+
+  # ============================ CLIENTS AREA ============================= #
+
+  scope ":entity", as: :entity, module: "entity_module" do
+    resources :dashboard, only: :index
+    resources :categories, except: :show
+    resources :products, except: :show do
+      post :toggle_visible
+    end
   end
 
-  scope module: "entity_module" do
-    # resources :catalogs, only: :index
-    resources :categories
-    resources :products
-    resources :dashboard, only: :index
+  # ============================ CLIENTS AREA ============================= #
+
+  # ========================= CONFIG NEW ENTITIES ========================= #
+
+  namespace "admin" do
+    resources :entities, except: :show
   end
+
+  # ========================= CONFIG NEW ENTITIES ========================= #
+
+  root "entity_module/dashboard#index"
 end
