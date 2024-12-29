@@ -7,7 +7,7 @@
 #  name           :string
 #  price_cents    :integer          default(0), not null
 #  price_currency :string           default("BRL"), not null
-#  visible        :boolean          default(FALSE)
+#  visible        :boolean          default(TRUE)
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  entity_id      :bigint           not null
@@ -23,7 +23,7 @@
 class Product < ApplicationRecord
   # Associations
   belongs_to :entity
-  has_many :categories_products
+  has_many :categories_products, dependent: :destroy
   has_many :categories, through: :categories_products
 
   # Validations

@@ -1,17 +1,12 @@
 <!-- Sidebar -->
-<div class="sidebar" data-background-color="dark">
+<div class="sidebar sidebar-style-2" data-background-color="dark">
 
   <div class="sidebar-logo">
     <!-- Logo Header -->
     <div class="logo-header" data-background-color="dark">
-      <a href="index.html" class="logo">
-        <img
-          src="images/kaiadmin/logo_light.svg"
-          alt="navbar brand"
-          class="navbar-brand"
-          height="20"
-        />
-      </a>
+      
+      <h4 class='text-white'><%= current_entity.name.upcase %></h4>
+
       <div class="nav-toggle">
         <button class="btn btn-toggle toggle-sidebar">
           <i class="gg-menu-right"></i>
@@ -30,49 +25,38 @@
   <div class="sidebar-wrapper scrollbar scrollbar-inner">
     <div class="sidebar-content">
       <ul class="nav nav-secondary">
-        <li class="nav-item active">
-          <a
-            data-bs-toggle="collapse"
-            href="#dashboard"
-            class="collapsed"
-            aria-expanded="false"
-          >
+        <li class="nav-item <%= controller_name == 'dashboard' ? 'active' : '' %>">
+          <%= link_to entity_dashboard_index_path do %>
             <%= fa_icon "area-chart" %>
-
+            
             <p>Dashboard</p>
-            <span class="caret"></span>
-          </a>
-          <div class="collapse" id="dashboard">
-            <ul class="nav nav-collapse">
-              <li>
-                <a href="../demo1/index.html">
-                  <span class="sub-item">Dashboard 1</span>
-                </a>
-              </li>
-            </ul>
-          </div>
+          <% end %>
         </li>
+
         <li class="nav-section">
           <span class="sidebar-mini-icon">
             <i class="fa fa-ellipsis-h"></i>
           </span>
+
           <h4 class="text-section">Menu</h4>
         </li>
-        <li class="nav-item">
-          <a data-bs-toggle="collapse" href="#base">
+
+        <li class="nav-item submenu <%= controller_name != 'dashboard' ? 'active' : '' %>">
+          <a data-bs-toggle="collapse" href="#entity_base">
             <%= fa_icon "database" %>
             <p>Base</p>
             <span class="caret"></span>
           </a>
-          <div class="collapse show">
-            <ul class="nav nav-collapse" style='list-style-type: none;'>
-              <li>
-                <%= link_to products_path do %>
-                  <span class="sub-item">Meus Produtos</span>
+
+          <div class="collapse <%= controller_name != 'dashboard' ? 'show' : '' %>" id='entity_base'>
+            <ul class="nav nav-collapse">
+              <li class="<%= controller_name == 'products' ? 'active' : '' %>">
+                <%= link_to entity_products_path do %>
+                  <span class="sub-item">Produtos</span>
                 <% end %>
               </li>
-              <li>
-                <%= link_to categories_path do %>
+              <li class="<%= controller_name == 'categories' ? 'active' : '' %>">
+                <%= link_to entity_categories_path do %>
                   <span class="sub-item">Categorias Produtos</span>
                 <% end %>
               </li>

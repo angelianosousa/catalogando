@@ -3,7 +3,8 @@
   <td><%= humanized_money_with_symbol product.price_cents %></td>
   <td><%= number_to_percentage product.discount %></td>
   <td><%= humanized_money_with_symbol product.final_price %></td>
-  <td><%= product.visible %></td>
+  <td><%= I18n.l product.created_at %></td>
+  <td><%= visible_tag(product.visible) %></td>
   <td>
     <%= render 'actions', product: product %>
   </td>
