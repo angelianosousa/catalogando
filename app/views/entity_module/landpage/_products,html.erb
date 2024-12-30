@@ -1,0 +1,14 @@
+<div class="col">
+  <div class="card h-100 shadow-sm">
+    <%= image_tag 'pai_joao.jpg', class: 'object-fit-fill border' %>
+
+    <div class="card-body">
+      <p class="card-text"><%= prod.name %></p>
+
+      <div class="d-flex justify-content-around align-items-center">
+        <h4><%= humanized_money_with_symbol prod.final_price %></h4>
+        <p class='text-secondary'><s><%= humanized_money_with_symbol prod.price_cents %></s></p>
+      </div>
+    </div>
+  </div>
+</div>

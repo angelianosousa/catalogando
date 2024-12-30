@@ -1,4 +1,7 @@
-<div class="d-grid gap-2 d-md-flex justify-content-md-end">
-  <%= link_to_edit_resource("", edit_product_path(product)) %>
-  <%= link_to_delete_resource("", product_path(product)) %>
+<div class="d-grid gap-3 d-md-flex justify-content-md-end">
+  <%= link_to_edit_resource("", edit_entity_product_path(product)) %>
+  <%= link_to_delete_resource("", entity_product_path(product)) %>
+  <div class="form-check form-switch text-success">
+    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" checked>
+  </div>
 </div>

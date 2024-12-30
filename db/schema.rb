@@ -10,11 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< Updated upstream
-ActiveRecord::Schema[7.2].define(version: 2024_12_22_154806) do
-=======
 ActiveRecord::Schema[7.2].define(version: 2024_12_29_205808) do
->>>>>>> Stashed changes
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -38,6 +35,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_29_205808) do
 
   create_table "entities", force: :cascade do |t|
     t.string "name"
+    t.string "nickname"
     t.boolean "active", default: true
     t.string "slug"
     t.datetime "created_at", null: false
@@ -60,11 +58,27 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_29_205808) do
     t.integer "price_cents", default: 0, null: false
     t.string "price_currency", default: "BRL", null: false
     t.decimal "discount", default: "0.0"
-    t.boolean "visible", default: false
+    t.boolean "visible", default: true
     t.bigint "entity_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["entity_id"], name: "index_products_on_entity_id"
+  end
+
+  create_table "user_accounts", force: :cascade do |t|
+    t.string "name"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.bigint "entity_id", null: false
+    t.string "type"
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_user_accounts_on_email", unique: true
+    t.index ["entity_id"], name: "index_user_accounts_on_entity_id"
+    t.index ["reset_password_token"], name: "index_user_accounts_on_reset_password_token", unique: true
   end
 
   add_foreign_key "categories", "entities"
@@ -72,4 +86,5 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_29_205808) do
   add_foreign_key "categories_products", "products"
   add_foreign_key "landpages", "entities"
   add_foreign_key "products", "entities"
+  add_foreign_key "user_accounts", "entities"
 end

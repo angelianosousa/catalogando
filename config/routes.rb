@@ -12,8 +12,6 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-<<<<<<< Updated upstream
-=======
   # ============================ AUTHENTICATION =========================== #
 
   devise_for :admin_entities
@@ -34,15 +32,11 @@ Rails.application.routes.draw do
 
   # ========================= CONFIG NEW ENTITIES ========================= #
 
->>>>>>> Stashed changes
   namespace "admin" do
-    resources :entities
+    resources :entities, except: :show
   end
 
-  scope module: "entity_module" do
-    # resources :catalogs, only: :index
-    resources :categories
-    resources :products
-    resources :dashboard, only: :index
-  end
+  # ========================= CONFIG NEW ENTITIES ========================= #
+
+  root "entity_module/dashboard#index"
 end

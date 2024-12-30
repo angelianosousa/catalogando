@@ -3,16 +3,12 @@
   <head>
     <title><%= content_for(:title) || "Catalogando" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-<<<<<<< Updated upstream
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= yield :head %>
 
-=======
-    <meta name="mobile-web-app-capable" content="yes">
->>>>>>> Stashed changes
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
@@ -25,7 +21,9 @@
 
     <%= stylesheet_link_tag "entities", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "entities", "data-turbo-track": "reload", type: "module" %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
   </head>
+
   <body>
     <div class="wrapper">
       <%= render 'entity_module/sidebar' %>
@@ -35,9 +33,9 @@
 
         <div class="container">
           <div class="page-inner">
-            <%= content_for(:page_header) || "<h2>Dashboard</h2>".html_safe %>
-
             <%= render 'shared/flash_messages' %>
+
+            <%= content_for(:page_header) || "<h2>Dashboard</h2>".html_safe %>
 
             <%= yield %>
           </div>

@@ -2,6 +2,7 @@ source "https://rubygems.org"
 
 gem "annotate", "~> 3.2"              # Add a comment summarizing the current schema to the top or bottom of each of your...
 gem "cssbundling-rails"               # Bundle and process CSS [https://github.com/rails/cssbundling-rails]
+gem "devise", "~> 4.9"                # Authentication
 gem "font-awesome-rails", "~> 4.7"    # Font-Awesome web fonts and stylesheets as a Rails engine for use with the asset pipeline.
 gem "friendly_id", "~> 5.5"           
 gem "jbuilder"                        # Build JSON APIs with ease [https://github.com/rails/jbuilder]
@@ -31,9 +32,9 @@ group :development, :test do
   gem "byebug", platforms: %i[ mri windows ]  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "brakeman", require: false              # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
   gem "rubocop-rails-omakase", require: false # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
+  gem "faker", "~> 3.5"                       # Generate fake data for tests
 end
 
 group :development do
   gem "web-console" # Use console on exceptions pages [https://github.com/rails/web-console]
 end
-

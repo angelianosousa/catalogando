@@ -20,7 +20,7 @@
 class Category < ApplicationRecord
   # Associations
   belongs_to :entity
-  has_many :categories_products
+  has_many :categories_products, dependent: :destroy
   has_many :products, through: :categories_products
 
   # Validations

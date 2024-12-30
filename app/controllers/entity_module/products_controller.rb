@@ -1,14 +1,14 @@
 class EntityModule::ProductsController < EntitiesController
-  before_action :set_product, only: %i[ show edit update destroy ]
+  before_action :set_product, only: %i[ edit update destroy ]
 
   # GET /products or /products.json
   def index
-    @products = Product.all
+    @products = current_entity.products.order(created_at: :desc)
   end
 
   # GET /products/new
   def new
-    @product = Product.new
+    @product = current_entity.products.build
   end
 
   # GET /products/1/edit
@@ -16,12 +16,11 @@ class EntityModule::ProductsController < EntitiesController
 
   # POST /products or /products.json
   def create
-    @product = Product.new(product_params)
-    @product.entity = Entity.last
+    @product = current_entity.products.build(product_params)
 
     respond_to do |format|
       if @product.save
-        format.html { redirect_to products_path, flash: { success: "Product was successfully created." } }
+        format.html { redirect_to entity_products_path, flash: { success: "Produto criado com sucesso." } }
         format.json { render :show, status: :created, location: @entity }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -32,10 +31,9 @@ class EntityModule::ProductsController < EntitiesController
 
   # PATCH/PUT /products/1 or /products/1.json
   def update
-    @product.entity = Entity.last
     respond_to do |format|
       if @product.update(product_params)
-        format.html { redirect_to products_path, flash: { success: "Product was successfully updated." } }
+        format.html { redirect_to entity_products_path, flash: { success: "Produto atualizado com sucesso." } }
         format.json { render :show, status: :ok, location: @product }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -49,7 +47,7 @@ class EntityModule::ProductsController < EntitiesController
     @product.destroy!
 
     respond_to do |format|
-      format.html { redirect_to products_path, status: :see_other, flash: { success: "Product was successfully destroyed." } }
+      format.html { redirect_to entity_products_path, status: :see_other, flash: { success: "Produto removido com sucesso." } }
       format.json { head :no_content }
     end
   end
@@ -57,7 +55,7 @@ class EntityModule::ProductsController < EntitiesController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product
-      @product = Product.find(params[:id])
+      @product = current_entity.products.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

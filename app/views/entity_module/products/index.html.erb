@@ -5,22 +5,23 @@
     <div class="container-fluid d-flex justify-content-between">
       <h1>
         <%= fa_icon "list" %>
-        <%= link_to 'Produtos', products_path, class: 'navbar-brand text-dark' %>
+        <%= link_to 'Produtos', entity_products_path, class: 'navbar-brand text-dark' %>
       </h1>
 
-      <%= link_to_new_resource("Novo produto", new_product_path) %>
+      <%= link_to_new_resource("Novo produto", new_entity_product_path) %>
     </div>
   <% end %>
 </nav>
 
 <div id="products">
-  <table class="table table-striped">
+  <table class="table table-head-bg-black table-striped">
     <thead class='table-dark'>
       <tr>
         <th>Nome</th>
         <th>Preço</th>
-        <th>Disconto</th>
+        <th>Desconto</th>
         <th>Preço final</th>
+        <th>Adicionado em</th>
         <th>Visível</th>
         <th></th>
       </tr>

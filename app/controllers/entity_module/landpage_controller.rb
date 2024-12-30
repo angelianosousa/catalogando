@@ -1,5 +1,6 @@
 class EntityModule::LandpageController < ApplicationController
-  layout 'landpage'
+  layout "landpage"
+
   def index
     @entity = Entity.friendly.find(params[:id])
 

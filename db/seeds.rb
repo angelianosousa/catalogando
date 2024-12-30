@@ -7,8 +7,6 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-<<<<<<< Updated upstream
-=======
 
 # Create Users
 entity = Entity.find_or_create_by(name: 'Empresa XPTO')
@@ -31,4 +29,3 @@ end
     categories: [entity.categories.sample]
   )
 end
->>>>>>> Stashed changes
