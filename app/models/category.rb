@@ -24,5 +24,14 @@ class Category < ApplicationRecord
   has_many :products, through: :categories_products
 
   # Validations
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: { case_sensitive: false }
+
+  # Ransack filter
+  def self.ransackable_attributes(auth_object = nil)
+    %w[id]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    %w[]
+  end
 end

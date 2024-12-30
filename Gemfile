@@ -3,6 +3,7 @@ source "https://rubygems.org"
 gem "annotate", "~> 3.2"              # Add a comment summarizing the current schema to the top or bottom of each of your...
 gem "cssbundling-rails"               # Bundle and process CSS [https://github.com/rails/cssbundling-rails]
 gem "font-awesome-rails", "~> 4.7"    # Font-Awesome web fonts and stylesheets as a Rails engine for use with the asset pipeline.
+gem "friendly_id", "~> 5.5"           
 gem "jbuilder"                        # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jsbundling-rails"                # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
 gem "money-rails", "~> 1.15"          # Integration of the money gem with ails.
@@ -35,3 +36,4 @@ end
 group :development do
   gem "web-console" # Use console on exceptions pages [https://github.com/rails/web-console]
 end
+

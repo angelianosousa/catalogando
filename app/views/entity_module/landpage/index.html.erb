@@ -1,0 +1,40 @@
+<section class="py-5 text-center container">
+  <div class="row py-lg-5">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <h1 class="fw-light"><%= @entity.name %></h1>
+      <p class="lead text-body-secondary">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
+    </div>
+  </div>
+</section>
+
+<div class='container-fluid'>
+  <div class="album py-5 bg-body-tertiary">
+    <div class="container">
+      <% @categories.each do |category| %>
+        <h2 class='my-3'><%= category.name %></h2>
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-3">
+
+          <% category.products.each do |prod| %>
+            <div class="col">
+              <div class="card h-100 shadow-sm">
+                <%= image_tag 'pai_joao.jpg', class: 'object-fit-fill border' %>
+
+                <div class="card-body">
+                  <p class="card-text"><%= prod.name %></p>
+
+                  <div class="d-flex justify-content-around align-items-center">
+                    <h4><%= humanized_money_with_symbol prod.final_price %></h4>
+                    <p class='text-secondary'><s><%= humanized_money_with_symbol prod.price_cents %></s></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+
+</div>

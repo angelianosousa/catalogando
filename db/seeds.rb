@@ -7,3 +7,28 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+<<<<<<< Updated upstream
+=======
+
+# Create Users
+entity = Entity.find_or_create_by(name: 'Empresa XPTO')
+
+AdminEntity.find_or_initialize_by(entity_id: entity.id, name: 'Demo User', email: 'demo@teste.com') do |admin|
+  admin.password              = 'demoteste#321'
+  admin.password_confirmation = 'demoteste#321'
+  admin.save
+end
+
+%w[Alimentos Limpeza Higiene].each do |category|
+  entity.categories.find_or_create_by(name: category)
+end
+
+30.times do
+  entity.products.create(
+    name: Faker::Book.title,
+    price: Money.new(Faker::Number.between(from: 1, to: 99)),
+    discount: Faker::Number.between(from: 1, to: 99),
+    categories: [entity.categories.sample]
+  )
+end
+>>>>>>> Stashed changes

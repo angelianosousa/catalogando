@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< Updated upstream
 ActiveRecord::Schema[7.2].define(version: 2024_12_22_154806) do
+=======
+ActiveRecord::Schema[7.2].define(version: 2024_12_29_205808) do
+>>>>>>> Stashed changes
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -35,8 +39,20 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_22_154806) do
   create_table "entities", force: :cascade do |t|
     t.string "name"
     t.boolean "active", default: true
+    t.string "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["slug"], name: "index_entities_on_slug", unique: true
+  end
+
+  create_table "landpages", force: :cascade do |t|
+    t.bigint "entity_id", null: false
+    t.string "banner"
+    t.string "logo"
+    t.boolean "open", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["entity_id"], name: "index_landpages_on_entity_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -54,5 +70,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_22_154806) do
   add_foreign_key "categories", "entities"
   add_foreign_key "categories_products", "categories"
   add_foreign_key "categories_products", "products"
+  add_foreign_key "landpages", "entities"
   add_foreign_key "products", "entities"
 end

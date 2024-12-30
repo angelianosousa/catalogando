@@ -1,5 +1,9 @@
 <% flash.each do |message_type, message| %>
+<<<<<<< Updated upstream
   <div class="alert alert-<%= message_type %>" role='alert'>
+=======
+  <div class="bg-<%= message_type == 'notice' ? 'success' : message_type %>" role='alert'>
+>>>>>>> Stashed changes
     <p><%= message %></p>
   </div>
 <% end %>

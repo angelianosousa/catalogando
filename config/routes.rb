@@ -12,6 +12,29 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
+<<<<<<< Updated upstream
+=======
+  # ============================ AUTHENTICATION =========================== #
+
+  devise_for :admin_entities
+
+  # ============================ AUTHENTICATION =========================== #
+
+  # ============================ CLIENTS AREA ============================= #
+
+  scope ":entity", as: :entity, module: "entity_module" do
+    resources :dashboard, only: :index
+    resources :categories, except: :show
+    resources :products, except: :show
+  end
+
+  get ":id", to: "entity_module/landpage#index", as: :landpage
+
+  # ============================ CLIENTS AREA ============================= #
+
+  # ========================= CONFIG NEW ENTITIES ========================= #
+
+>>>>>>> Stashed changes
   namespace "admin" do
     resources :entities
   end
