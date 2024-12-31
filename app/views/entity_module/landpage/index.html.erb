@@ -1,3 +1,17 @@
+<div class="container-fluid text-bg-dark">
+  <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom" data-bs-theme="dark">
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+      <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+      <span class="fs-4"><%= @entity.name %></span>
+    </a>
+
+    <ul class="nav nav-pills">
+      <li class="nav-item text-white"><a href="#home" class="nav-link" aria-current="page">Home</a></li>
+      <li class="nav-item text-white"><a href="#products" class="nav-link" aria-current="page">Produtos</a></li>
+    </ul>
+  </header>
+</div>
+
 <section class="py-5 text-center container">
   <div class="row py-lg-5">
     <div class="col-lg-6 col-md-8 mx-auto">
@@ -7,34 +21,64 @@
   </div>
 </section>
 
-<div class='container-fluid'>
-  <div class="album py-5 bg-body-tertiary">
-    <div class="container">
-      <% @categories.each do |category| %>
-        <h2 class='my-3'><%= category.name %></h2>
 
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-3">
+<div class="container-fluid bg-body-secondary mb-3">
+  <header class="d-flex justify-content-center py-3">
 
-          <% category.products.each do |prod| %>
-            <div class="col">
-              <div class="card h-100 shadow-sm">
-                <%= image_tag 'pai_joao.jpg', class: 'object-fit-fill border' %>
+    <ul class="nav nav-pills">
+      <% @entity.categories.with_available_products.each do |cat| %>
+        <li class="nav-item">
+          <%= link_to cat.name, landpage_path(q: { id_eq: cat.id }), class: 'nav-link mx-3' %>
+        </li>
+      <% end %>
+    </ul>
+  </header>
+</div>
 
-                <div class="card-body">
-                  <p class="card-text"><%= prod.name %></p>
+<div class='container-fluid' id='products'>
+  <div class="row">
+    <div class="col-md-9 col-sm-12">
 
-                  <div class="d-flex justify-content-around align-items-center">
-                    <h4><%= humanized_money_with_symbol prod.final_price %></h4>
-                    <p class='text-secondary'><s><%= humanized_money_with_symbol prod.price_cents %></s></p>
+      <div class="album bg-body-tertiary py-5">
+        <div class="container">
+          <% @categories.each do |category| %>
+            <h2 class='my-3'><%= category.name %></h2>
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-3">
+              <% category.products.each do |prod| %>
+                <div class="col">
+                  <div class="card h-100 shadow-sm">
+                    <%= image_tag 'pai_joao.jpg', class: 'object-fit-fill border' %>
+
+                    <div class="card-body">
+                      <p class="card-text"><%= prod.name %></p>
+
+                      <div class="d-flex justify-content-around align-items-center">
+                        <h4><%= humanized_money_with_symbol prod.final_price %></h4>
+
+                        <p class='text-secondary'><s><%= humanized_money_with_symbol prod.price_cents %></s></p>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
+              <% end %>
             </div>
+
           <% end %>
         </div>
-
-      <% end %>
+      </div>
     </div>
+
+    <div class="col-md">
+      <div class="bg-body-tertiary">
+        <div class="list-group">
+          <% @entity.categories.with_available_products.each do |cat| %>
+            <%= link_to cat.name, landpage_path(q: { id_eq: cat.id }), class: "list-group-item list-group-item-action #{cat.id == params.dig('q', 'id_eq').to_i ? 'active' : ''}", 'aria-current':"true" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
   </div>
 
 </div>

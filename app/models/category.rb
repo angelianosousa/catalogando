@@ -26,9 +26,13 @@ class Category < ApplicationRecord
   # Validations
   validates :name, presence: true, uniqueness: { case_sensitive: false }
 
+  # Scopes
+  scope :with_available_products, -> { active.includes(:products).where(products: { visible: true }) }
+  scope :active, -> { where(active: true) }
+
   # Ransack filter
   def self.ransackable_attributes(auth_object = nil)
-    %w[id]
+    %w[id name]
   end
 
   def self.ransackable_associations(auth_object = nil)

@@ -20,4 +20,13 @@ class Entity < ApplicationRecord
   def create_landpage
     Landpage.create!(entity_id: id)
   end
+
+  # Ransack filter
+  def self.ransackable_attributes(auth_object = nil)
+    %w[]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    %w[categories]
+  end
 end
