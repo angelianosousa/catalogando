@@ -35,5 +35,14 @@ class Product < ApplicationRecord
   def final_price
     price_cents * (1 - discount / 100)
   end
+
+  # Ransack filter
+  def self.ransackable_attributes(auth_object = nil)
+    %w[id name price_cents]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    %w[]
+  end
 end
 

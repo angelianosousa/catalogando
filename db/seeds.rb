@@ -17,7 +17,7 @@ AdminEntity.find_or_initialize_by(entity_id: entity.id, name: 'Demo User', email
   admin.save
 end
 
-%w[Alimentos Limpeza Higiene].each do |category|
+%w[Alimentos Limpeza Higiene Frutas Verduras Legumes].each do |category|
   entity.categories.find_or_create_by(name: category)
 end
 

@@ -27,7 +27,7 @@ class Category < ApplicationRecord
   validates :name, presence: true, uniqueness: { case_sensitive: false }
 
   # Scopes
-  scope :with_available_products, -> { active.includes(:products).where(products: { visible: true }) }
+  scope :with_available_products, -> { active.includes(:products).where(products: { visible: true }).order("products.name ASC") }
   scope :active, -> { where(active: true) }
 
   # Ransack filter
@@ -36,6 +36,6 @@ class Category < ApplicationRecord
   end
 
   def self.ransackable_associations(auth_object = nil)
-    %w[]
+    %w[products]
   end
 end

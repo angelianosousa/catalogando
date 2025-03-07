@@ -2,6 +2,7 @@
 <html lang="pt-BR" data-bs-theme="auto">
   <head>
     <meta charset="utf-8">
+    <title><%= content_for(:title) || "#{@entity.name} | Catalogo" %></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="generator" content="Hugo 0.122.0">
@@ -11,8 +12,6 @@
   </head>
 
   <body>
-    
-
     <main>
       <%= yield %>
     </main>
@@ -27,13 +26,9 @@
         </div>
 
         <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-          <li class='ms-3'><%= fa_icon 'fa-twitter' %></li>
-          <li class='ms-3'><%= fa_icon 'fa-instagram' %></li>
-          <li class='ms-3'><%= fa_icon 'fa-facebook' %></li>
-          
-          <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
-          <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
-          <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>
+          <li class='ms-3'><%= fa_stacked_icon 'twitter inverse', base: 'circle' %></li>
+          <li class='ms-3'><%= fa_stacked_icon 'instagram inverse', base: 'circle' %></li>
+          <li class='ms-3'><%= fa_stacked_icon 'facebook inverse', base: 'circle' %></li>
         </ul>
       </footer>
     </div>
