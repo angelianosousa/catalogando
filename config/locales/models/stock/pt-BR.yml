@@ -1,0 +1,17 @@
+---
+pt-BR:
+  activerecord:
+    attributes:
+      stock:
+        move_type:          Lançamento
+        product_id:         Produto
+        cost_unit:          Custo unitário
+        total_cost:         Custo total
+        quantity:           Quantidade
+        created_at:         Criado em
+        product/move_type:
+          buyer:            Compras
+          sells:            Vendas
+    models:
+      one: Estoque
+      other: Estoques

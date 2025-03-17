@@ -40,3 +40,5 @@ group :development do
 end
 
 gem "ransack", "~> 4.2"
+
+gem "kaminari", "~> 1.2"

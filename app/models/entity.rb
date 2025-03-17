@@ -23,9 +23,11 @@ class Entity < ApplicationRecord
   after_create :create_landpage
 
   # Associations
-  has_many :products
-  has_many :categories
-  has_many :admin_entities
+  has_many :products, dependent: :destroy
+  has_many :orders, dependent: :destroy
+  has_many :categories, dependent: :destroy
+  has_many :stocks, dependent: :destroy
+  has_many :admin_entities, dependent: :destroy
 
   has_one :landpage, dependent: :destroy
 

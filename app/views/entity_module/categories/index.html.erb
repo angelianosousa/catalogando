@@ -13,19 +13,21 @@
   <% end %>
 </nav>
 
-<div id="categories" class="table-responsive-sm">
-  <table class="table table-sm table-head-bg-black table-striped">
-    <thead>
-      <tr>
-        <th>Nome</th>
-        <th>Status</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @categories.each do |category| %>
-        <%= render category %>
-      <% end %>
-    </tbody>
-  </table>
+<div class="card">
+  <div class="card-body">
+    <table class="table table-sm table-head-bg-black table-striped">
+      <thead>
+        <tr>
+          <th><%= Category.human_attribute_name :name %></th>
+          <th><%= Category.human_attribute_name :status %></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @categories.each do |category| %>
+          <%= render category %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>

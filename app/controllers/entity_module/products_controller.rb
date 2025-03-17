@@ -3,7 +3,9 @@ class EntityModule::ProductsController < EntitiesController
 
   # GET /products or /products.json
   def index
-    @products = current_entity.products.order(created_at: :desc)
+    @q = current_entity.products.ransack(params[:q])
+
+    @products = @q.result(distinct: true).order(created_at: :desc).page(params[:page])
   end
 
   # GET /products/new

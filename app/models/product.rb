@@ -38,7 +38,7 @@ class Product < ApplicationRecord
 
   # Ransack filter
   def self.ransackable_attributes(auth_object = nil)
-    %w[id name price_cents]
+    %w[id name price_cents created_at]
   end
 
   def self.ransackable_associations(auth_object = nil)

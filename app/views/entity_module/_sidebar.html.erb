@@ -29,7 +29,7 @@
           <%= link_to entity_dashboard_index_path do %>
             <%= fa_icon "area-chart" %>
             
-            <p>Dashboard</p>
+            <p><%= t('.dashboard') %></p>
           <% end %>
         </li>
 
@@ -38,32 +38,54 @@
             <i class="fa fa-ellipsis-h"></i>
           </span>
 
-          <h4 class="text-section">Menu</h4>
+          <h4 class="text-section"><%= t('.menu') %></h4>
         </li>
 
-        <li class="nav-item submenu <%= controller_name != 'dashboard' ? 'active' : '' %>">
-          <a data-bs-toggle="collapse" href="#entity_base">
-            <%= fa_icon "database" %>
-            <p>Base</p>
+        <li class="nav-item submenu <%= ['products', 'categories', 'stocks'].include?(controller_name) ? 'active' : '' %>">
+          <a data-bs-toggle="collapse" href="#entity_geral">
+            <%= fa_icon "th-list" %>
+            <p><%= t('.geral') %></p>
             <span class="caret"></span>
           </a>
 
-          <div class="collapse <%= controller_name != 'dashboard' ? 'show' : '' %>" id='entity_base'>
+          <div class="collapse <%= ['products', 'categories', 'stocks'].include?(controller_name) ? 'show' : '' %>" id='entity_geral'>
             <ul class="nav nav-collapse">
               <li class="<%= controller_name == 'products' ? 'active' : '' %>">
                 <%= link_to entity_products_path do %>
-                  <span class="sub-item">Produtos</span>
+                  <span class="sub-item"><%= t('.products') %></span>
                 <% end %>
               </li>
               <li class="<%= controller_name == 'categories' ? 'active' : '' %>">
                 <%= link_to entity_categories_path do %>
-                  <span class="sub-item">Categorias</span>
+                  <span class="sub-item"><%= t('.categories') %></span>
+                <% end %>
+              </li>
+              <li class="<%= controller_name == 'stocks' ? 'active' : '' %>">
+                <%= link_to entity_stocks_path do %>
+                  <span class="sub-item"><%= t('.stocks') %></span>
                 <% end %>
               </li>
             </ul>
           </div>
         </li>
 
+        <li class="nav-item submenu <%= ['orders'].include?(controller_name) ? 'active' : '' %>">
+          <a data-bs-toggle="collapse" href="#entity_box">
+            <%= fa_icon "shopping-cart" %>
+            <p><%= t('.cashier') %></p>
+            <span class="caret"></span>
+          </a>
+
+          <div class="collapse <%= controller_name == 'orders' ? 'show' : '' %>" id='entity_box'>
+            <ul class="nav nav-collapse">
+              <li class="<%= controller_name == 'orders' ? 'active' : '' %>">
+                <%= link_to entity_orders_path do %>
+                  <span class="sub-item"><%= t('.orders') %></span>
+                <% end %>
+              </li>
+            </ul>
+          </div>
+        </li>
       </ul>
     </div>
   </div>

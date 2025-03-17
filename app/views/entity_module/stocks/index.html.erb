@@ -1,0 +1,37 @@
+<% content_for :title, "Catalogando | Produtos" %>
+
+<nav class="navbar bg-body-tertiary">
+  <%= content_for :page_header do %>
+    <div class="container-fluid d-flex justify-content-between">
+      <h1>
+        <%= fa_icon "list" %>
+        <%= link_to 'Estoques', entity_stocks_path, class: 'navbar-brand text-dark' %>
+      </h1>
+
+      <%= link_to_new_resource("Lançar estoque", new_entity_stock_path) %>
+    </div>
+  <% end %>
+</nav>
+
+<div class="card">
+  <div class="card-body">
+    <table class="table table-head-bg-black table-striped">
+      <thead class='table-dark'>
+        <tr>
+          <th><%= Stock.human_attribute_name :move_type %></th>
+          <th><%= Stock.human_attribute_name :quantity %></th>
+          <th><%= Stock.human_attribute_name :cost_unit %></th>
+          <th><%= Stock.human_attribute_name :total_cost %></th>
+          <th><%= Stock.human_attribute_name :product_id %></th>
+          <th><%= Stock.human_attribute_name :created_at %></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @stocks.each do |stock| %>
+          <%= render stock %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

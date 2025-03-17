@@ -1,0 +1,14 @@
+<% content_for :title, "Novo pedido" %>
+
+<nav class="navbar bg-body-tertiary">
+  <%= content_for :page_header do %>
+    <div class="container-fluid d-flex justify-content-between">
+      <h2>Novo pedido</h2>
+
+      <%= link_to_back %>
+    </div>
+  <% end %>
+</nav>
+
+<%= render "form", order: @order %>
+

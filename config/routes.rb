@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
   # Defines the root path route ("/")
-  # root "posts#index"
 
   # ============================ AUTHENTICATION =========================== #
 
@@ -24,6 +23,8 @@ Rails.application.routes.draw do
     resources :dashboard, only: :index
     resources :categories, except: :show
     resources :products, except: :show
+    resources :stocks, except: :show
+    resources :orders, except: :show
   end
 
   get ":id", to: "entity_module/landpage#index", as: :landpage

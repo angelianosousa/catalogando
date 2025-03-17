@@ -1,0 +1,22 @@
+<%= form_with(model: [:entity, order]) do |form| %>
+  <div class='card'>
+    <div class='card-body'>
+      <%= render 'shared/errors_messages', resource: order %>
+
+        <%= link_to_add_fields(form, :order_items, '#order-items', link_classes: 'btn btn-success', partial_form_variable: :ff) do %>
+          <i class="fa fa-plus"></i>
+        <% end %>
+        
+        <div id='order-items'>
+          <%= form.fields_for :order_items do |order_item_f| %>
+            <%= render 'order_item_fields', ff: order_item_f %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= form.submit t('save'), class: 'btn btn-primary btn-sm' %>
+      </div>
+    </div>
+  </div>
+<% end %>

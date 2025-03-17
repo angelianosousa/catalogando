@@ -27,5 +27,14 @@
 #       "yes": yup
 #       enabled: "ON"
 
+---
 en:
-  hello: "Hello world"
+  date:
+    formats:
+      resumed: "%b/%y"
+      simple: "%b/%d/%y"
+      long: "%d %B %Y"
+    
+  time:
+    formats:
+      simple: "%b/%d/%y %H:%M:%S"

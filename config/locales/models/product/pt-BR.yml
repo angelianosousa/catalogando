@@ -1,0 +1,19 @@
+---
+pt-BR:
+  activerecord:
+    attributes:
+      product:
+        name:                 Nome
+        price_cents:          Preço
+        discount:             Desconto
+        price_with_discount:  Preço com desconto
+        category_ids:         Categorias
+        created_at:           Criado em
+        visible:              Visível
+        product/visible:
+          yes:                Sim
+          no:                 Não
+    models:
+      product:
+        one: Produto
+        other: Produtos

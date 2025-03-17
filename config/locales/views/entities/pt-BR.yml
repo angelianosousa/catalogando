@@ -1,0 +1,15 @@
+---
+pt-BR:
+  entity_module:
+    sidebar:
+      dashboard:    Dashboard
+      menu:         Menu
+      geral:        Geral
+      products:     Produtos
+      categories:   Categorias
+      stocks:       Estoques
+      cashier:      Caixa
+      orders:       Pedidos
+    navbar_header:
+      sign_out:     Sair
+    footer:

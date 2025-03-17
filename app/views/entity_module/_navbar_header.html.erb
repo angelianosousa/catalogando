@@ -31,7 +31,6 @@
             aria-expanded="false"
           >
             <span class="profile-username">
-              <span class="op-7">Olá,</span>
               <span class="fw-bold"><%= current_entity.name %></span>
             </span>
           </a>
@@ -49,7 +48,7 @@
               <li>
                 <div class="dropdown-divider"></div>
                 <%= link_to destroy_admin_entity_session_path, class: 'dropdown-item', data: { 'turbo-method': :delete } do %>
-                  <%= fa_icon 'sign-out' %> Sair
+                  <%= fa_icon 'sign-out' %> <%= t('.sign_out') %>
                 <% end %>
               </li>
             </div>

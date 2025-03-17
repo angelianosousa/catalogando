@@ -1,0 +1,14 @@
+<% content_for :title, "Catalogando | Pedidos" %>
+
+<nav class="navbar bg-body-tertiary">
+  <%= content_for :page_header do %>
+    <div class="container-fluid d-flex justify-content-between">
+      <h1>
+        <%= fa_icon "list" %>
+        <%= link_to 'Pedidos', entity_orders_path, class: 'navbar-brand text-dark' %>
+      </h1>
+
+      <%= link_to_new_resource("Lançar pedido", new_entity_order_path) %>
+    </div>
+  <% end %>
+</nav>
