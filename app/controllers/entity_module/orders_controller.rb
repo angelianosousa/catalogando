@@ -16,7 +16,7 @@ class EntityModule::OrdersController < EntitiesController
     @order = current_entity.orders.build(order_params)
 
     if @order.save
-      redirect_to entity_products_path, flash: { success: "Pedido salvo com sucesso." }
+      redirect_to entity_orders_path, flash: { success: "Pedido salvo com sucesso." }
     else
       render :new, status: :unprocessable_entity
     end

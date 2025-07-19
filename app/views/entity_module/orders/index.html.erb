@@ -12,3 +12,24 @@
     </div>
   <% end %>
 </nav>
+
+
+<div class="card">
+  <div class="card-body">
+    <table class="table table-head-bg-black table-striped">
+      <thead class='table-dark'>
+        <tr>
+          <th><%= Order.human_attribute_name :id %></th>
+          <th><%= Order.human_attribute_name :created_at %></th>
+          <th><%= Order.human_attribute_name :total_value %></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @orders.each do |order| %>
+          <%= render order %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

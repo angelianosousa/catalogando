@@ -1,20 +1,19 @@
 <div class="wrapper-div">
   <div class="d-flex flex-row justify-content-left align-items-center">
     <div class="form-group">
-      <%= ff.label :product_id, class: 'control-label' %>
-      <%= ff.select :product_id, options_for_select(products_for_select), {}, { class: 'form-control' } %>
+      <%= form.label :product_id, class: 'control-label' %>
+      <%= form.select :product_id, options_for_select(products_for_select), {}, { class: 'form-control' } %>
     </div>
 
     <div class="form-group">
-      <%= ff.label :quantity, class: 'control-label' %>
-      <%= ff.number_field :quantity, class: 'form-control' %>
+      <%= form.label :quantity, class: 'control-label' %>
+      <%= form.number_field :quantity, class: 'form-control' %>
     </div>
 
     <div class="form-group" style="margin-top: 26px;">
-      <%= ff.hidden_field :_destroy %>
-      <%= link_to '#', class: 'remove_fields btn btn-danger' do %>
-        <i class="fa fa-trash"></i>
-      <% end %>
+      <%= form.hidden_field :_destroy %>
+      <%= link_to_remove_nested(form, link_classes: 'btn btn-danger') %>
     </div>
   </div>
+
 </div>

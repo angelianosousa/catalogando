@@ -9,9 +9,10 @@
 
     <%= yield :head %>
 
-    <%= stylesheet_link_tag "entities", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "entities", "data-turbo-track": "reload", type: "module" %>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+    <%= stylesheet_link_tag "entities", media: "all" %>
+    
+    <%= javascript_include_tag "entities" %>
+    <%= javascript_importmap_tags %>
   </head>
 
   <body>

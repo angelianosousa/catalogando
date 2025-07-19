@@ -5,9 +5,9 @@ module StockHelper
 
   def badge_move_type(move_type)
     if move_type == "vendas"
-      badge_pill(move_type.upcase, class: "success")
+      badge_pill(move_type.upcase, class: "badge-success")
     else
-      badge_pill(move_type.upcase, class: "danger")
+      badge_pill(move_type.upcase, class: "badge-danger")
     end
   end
 

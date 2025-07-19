@@ -6,15 +6,15 @@ gem "devise", "~> 4.9"                # Authentication
 gem "font-awesome-rails", "~> 4.7"    # Font-Awesome web fonts and stylesheets as a Rails engine for use with the asset pipeline.
 gem "friendly_id", "~> 5.5"           # Search per string
 gem "jbuilder"                        # Build JSON APIs with ease [https://github.com/rails/jbuilder]
-gem "jsbundling-rails"                # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
+# gem "jsbundling-rails"                # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
 gem "money-rails", "~> 1.15"          # Integration of the money gem with ails.
 gem "pg", "~> 1.1"                    # Use postgresql as the database for Active Record
 gem "puma", ">= 5.0"                  # Use the Puma web server [https://github.com/puma/puma]
 gem "rails", "~> 7.2.2", ">= 7.2.2.1" # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "sassc-rails", "~> 2.1"           # Official integration for Ruby on Rails projects with the Sass stylesheet language.
 gem "sprockets-rails"                 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
-gem "stimulus-rails"                  # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
-gem "turbo-rails"                     # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
+# gem "stimulus-rails"                  # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
+# gem "turbo-rails"                     # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -42,3 +42,15 @@ end
 gem "ransack", "~> 4.2"
 
 gem "kaminari", "~> 1.2"
+
+gem "vanilla_nested", "~> 1.7"
+
+# Use jquery as the JavaScript librar
+gem "jquery-rails", "~> 4.6.0"
+
+# Use jquery-ui for pretty UI
+gem "jquery-ui-rails", "~> 7.0.0"
+
+gem "importmap-rails", "~> 2.1.0"
+
+gem "bootstrap", "~> 5.3.2"

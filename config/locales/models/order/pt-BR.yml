@@ -1,0 +1,8 @@
+---
+pt-BR:
+  activerecord:
+    attributes:
+      order:
+        id: Nº Pedido
+        total_value: Valor total
+        created_at: Criado em
