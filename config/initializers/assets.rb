@@ -14,6 +14,10 @@ Rails.application.config.assets.precompile += %w[
   bootstrap.min.js popper.js
 ]
 
+Rails.application.config.assets.precompile += %w[
+  devise.css
+]
+
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.

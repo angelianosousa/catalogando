@@ -6,7 +6,7 @@ gem "devise", "~> 4.9"                # Authentication
 gem "font-awesome-rails", "~> 4.7"    # Font-Awesome web fonts and stylesheets as a Rails engine for use with the asset pipeline.
 gem "friendly_id", "~> 5.5"           # Search per string
 gem "jbuilder"                        # Build JSON APIs with ease [https://github.com/rails/jbuilder]
-# gem "jsbundling-rails"                # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
+gem "jsbundling-rails"                # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
 gem "money-rails", "~> 1.15"          # Integration of the money gem with ails.
 gem "pg", "~> 1.1"                    # Use postgresql as the database for Active Record
 gem "puma", ">= 5.0"                  # Use the Puma web server [https://github.com/puma/puma]
@@ -42,8 +42,6 @@ end
 gem "ransack", "~> 4.2"
 
 gem "kaminari", "~> 1.2"
-
-gem "vanilla_nested", "~> 1.7"
 
 # Use jquery as the JavaScript librar
 gem "jquery-rails", "~> 4.6.0"

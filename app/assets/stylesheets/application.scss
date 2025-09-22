@@ -1,3 +1,7 @@
-// @import 'bootstrap/dist/css/bootstrap.min.css';
-@import 'bootstrap.css';
-@import './devise.css';
+// @import "font-awesome";
+
+@import '/vendor/assets/stylesheets/kaiatheme/fonts.min.css';
+@import '/vendor/assets/stylesheets/kaiatheme/bootstrap.min.css';
+@import '/vendor/assets/stylesheets/kaiatheme/plugins.min.css';
+@import '/vendor/assets/stylesheets/kaiatheme/kaiadmin.min.css';
+@import "jquery-ui.css";

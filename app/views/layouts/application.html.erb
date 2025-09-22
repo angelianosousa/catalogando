@@ -1,29 +1,58 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for(:title) || "Catalogando" %></title>
+    <title><%= content_for(:title) || "Gestão de Eventos" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= yield :head %>
 
-    <link rel="manifest" href="/manifest.json">
-    <link rel="icon" href="/icon.png" type="image/png">
-    <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <%= stylesheet_link_tag "application", media: "all" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
-    <%= javascript_importmap_tags %>
+    
+    <%= javascript_include_tag "application" %>
   </head>
 
   <body>
-    <%= render 'shared/navbar_admin' %>
-    
-    <div class="m-5">
-      <%= render 'shared/flash_messages' %>
+    <div class="wrapper">
+      <%= render 'company_module/sidebar' %>
 
-      <%= yield %>
+      <div class="main-panel">
+        <%= render 'company_module/navbar_header' %>
+
+        <div class="container">
+          <div class="page-inner">
+            <%= render 'shared/flash_messages' %>
+
+            <%= content_for(:page_header) || "<h2>Dashboard</h2>".html_safe %>
+
+            <%= yield %>
+          </div>
+        </div>
+
+        <%= render 'company_module/footer' %>
+      </div>
     </div>
+
+    <!-- Fonts and icons -->
+    <script src="assets/js/plugin/webfont/webfont.min.js"></script>
+    <script>
+      WebFont.load({
+        google: { families: ["Public Sans:300,400,500,600,700"] },
+        custom: {
+          families: [
+            "Font Awesome 5 Solid",
+            "Font Awesome 5 Regular",
+            "Font Awesome 5 Brands",
+            "simple-line-icons",
+          ],
+          urls: ["vendor/assets/stylesheets/kaiatheme/fonts.min.css"],
+        },
+        active: function () {
+          sessionStorage.fonts = true;
+        },
+      });
+    </script>
   </body>
 </html>

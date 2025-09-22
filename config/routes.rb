@@ -11,33 +11,14 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
 
-  # ============================ AUTHENTICATION =========================== #
-
-  devise_for :admin_entities
-
-  # ============================ AUTHENTICATION =========================== #
-
   # ============================ CLIENTS AREA ============================= #
 
-  scope ":entity", as: :entity, module: "entity_module" do
+  scope ":entidade", as: :company, module: "company_module" do
+    devise_for :admins, controllers: { sessions: 'company_module/admins/sessions' }
     resources :dashboard, only: :index
-    resources :categories, except: :show
-    resources :products, except: :show
-    resources :stocks, except: :show
-    resources :orders, except: :show
   end
-
-  get ":id", to: "entity_module/landpage#index", as: :landpage
 
   # ============================ CLIENTS AREA ============================= #
 
-  # ========================= CONFIG NEW ENTITIES ========================= #
-
-  namespace "admin" do
-    resources :entities, except: :show
-  end
-
-  # ========================= CONFIG NEW ENTITIES ========================= #
-
-  root "entity_module/dashboard#index"
+  root "company_module/dashboard#index"
 end

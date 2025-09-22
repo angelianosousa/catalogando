@@ -20,10 +20,5 @@
 #  index_user_accounts_on_email                 (email) UNIQUE
 #  index_user_accounts_on_reset_password_token  (reset_password_token) UNIQUE
 #
-class UserAccount < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable, :rememberable, :validatable and :omniauthable
-  devise :database_authenticatable, :recoverable
-
-  belongs_to :company, optional: true
+class Admin < UserAccount
 end
